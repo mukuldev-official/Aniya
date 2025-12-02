@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Aniya - From Deepanshu</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #ff4d8d;
+            --secondary-color: #ff99cc;
+            --accent-color: #ff66b3;
+            --dark-color: #b3005e;
+            --light-color: #ffe6f2;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe6f2 0%, #ffccdd 100%);
+            overflow-x: hidden;
+            color: #5a3d5c;
+        }
+        
+        .cursive-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .heart {
+            position: absolute;
+            background-color: var(--primary-color);
+            display: inline-block;
+            transform: rotate(-45deg);
+        }
+        
+        .heart:before,
+        .heart:after {
+            content: "";
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .heart:before {
+            top: -50%;
+            left: 0;
+        }
+        
+        .heart:after {
+            left: 50%;
+            top: 0;
+        }
+        
+        .floating-element {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse-element {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 77, 141, 0.7);
+        }
+        
+        .frame-border {
+            border: 15px solid #f8c8dc;
+            border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='75' height='75' viewBox='0 0 75 75'%3E%3Cpath fill='%23ff4d8d' d='M37.5,0C16.8,0,0,16.8,0,37.5S16.8,75,37.5,75S75,58.2,75,37.5S58.2,0,37.5,0z M37.5,68.5c-17.1,0-31-13.9-31-31s13.9-31,31-31s31,13.9,31,31S54.6,68.5,37.5,68.5z'/%3E%3Cpath fill='%23ff99cc' d='M37.5,6C20.2,6,6,20.2,6,37.5S20.2,69,37.5,69S69,54.8,69,37.5S54.8,6,37.5,6z M37.5,63.5c-14.4,0-26-11.6-26-26s11.6-26,26-26s26,11.6,26,26S51.9,63.5,37.5,63.5z'/%3E%3C/svg%3E") 30 round;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .romantic-bg {
+            background: linear-gradient(45deg, rgba(255,77,141,0.1) 0%, rgba(255,153,204,0.1) 100%);
+        }
+        
+        /* Music player styles */
+        .music-player {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 230, 242, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(179, 0, 94, 0.2);
+        }
+        
+        .progress-bar {
+            height: 5px;
+            background-color: #e6e6e6;
+            border-radius: 2.5px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #ff4d8d, #ff99cc);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .frame-border {
+                border-width: 10px;
+            }
+            
+            h1 {
+                font-size: 2.5rem !important;
+            }
+            
+            h2 {
+                font-size: 1.8rem !important;
+            }
+        }
+        .bg-img{
+                
+        }
+        .happymess{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            width: 100vw;
+            text-align: center;
+        }
+        .happymess .h1{
+            height: 10vh;
+            width: 80vw;
+        }
+        
+        .happymess .p{
+            height: 10vh;
+            width: 80vw;
+
+        }
+
+        
+        
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Canvas for background animations -->
+    <canvas id="heartsCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
+    
+    <!-- Music Player -->
+    <div class="music-player fixed top-4 right-4 z-50 rounded-full shadow-xl pulse-element" id="musicPlayer">
+        <div class="relative w-16 h-16 rounded-full flex items-center justify-center cursor-pointer" id="playPauseBtn">
+            <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-400 rounded-full animate-spin-slow" style="animation-duration: 8s;"></div>
+            <div class="absolute inset-2 bg-white rounded-full flex items-center justify-center">
+                <i class="fas fa-play text-2xl text-pink-600" id="playIcon"></i>
+                <i class="fas fa-pause text-2xl text-pink-600 hidden" id="pauseIcon"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="relative z-10">
+        <!-- Hero Section -->
+        <section class="bg-img flex flex-col items-center justify-center relative px-4 py-12">
+            <div class="text-center mb-8">
+                <div class="happymess">
+                    <div class="h1">
+                        <h1 class="text-5xl md:text-7xl font-extrabold mb-4 
+    bg-gradient-to-r from-pink-500 via-rose-600 to-purple-500 
+    bg-clip-text text-transparent 
+    drop-shadow-[0_0_20px_rgba(255,100,150,0.35)]
+    tracking-wide
+    animate__animated animate__fadeInDown">
+    🎀 Happy Birthday Aniya 🎀
+</h1>
+                    </div>
+                               
+                    <div class="p">
+
+<p class="text-lg md:text-xl 
+    text-rose-700 font-medium 
+    mt-3 mb-10 
+    backdrop-blur-sm px-4 py-2 rounded-xl inline-block
+    bg-white/40 border border-rose-200 shadow-md
+    animate__animated animate__fadeIn animate__delay-1s">
+    A special gift from Deepanshu ❤️
+</p>
+            
+                    </div>
+    </div>
+ 
+
+                
+                <!-- Quote -->
+                <div class="max-w-3xl mx-auto mb-12 p-6 rounded-2xl romantic-bg border border-pink-200 shadow-lg animate__animated animate__fadeIn animate__delay-2s">
+                    <p class="text-xl md:text-2xl italic text-rose-800 cursive-font">
+                        "The best thing in my life is you. Your smile is my favorite sight, your voice is my favorite sound, and your heart is my favorite place."
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Picture Frame -->
+            <div class="frame-border rounded-lg overflow-hidden max-w-2xl mx-auto animate__animated animate__zoomIn animate__delay-3s">
+                <div class="relative">
+                    <img src="assets/ChatGPT Image Dec 2, 2025, 07_01_50 PM.png" alt="Aniya's Picture" class="w-full h-auto" id="mainImage">
+                    <div class="absolute inset-0 bg-gradient-to-t from-pink-900/20 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <p class="text-2xl cursive-font">My Beautiful Aniya</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-3xl text-pink-600"></i>
+            </div>
+        </section>
+        
+        <!-- Special Moments Section -->
+        <section class="py-16 px-4 romantic-bg" data-aos="fade-up">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-pink-700 cursive-font">
+                    Special Moments
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Moment 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-105 floating-element" style="animation-delay: 0s;">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-pink-400 to-rose-400 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-heart text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-center text-pink-700 mb-4">First Meeting</h3>
+                            <p class="text-gray-700 text-center">The day I first saw you, I like your everything your voice and i remember when i saw you first you wearing a white dress.I want to be reason of your every happiness aniya.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Moment 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-105 floating-element" style="animation-delay: 0.5s;">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-pink-400 to-rose-400 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-star text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-center text-pink-700 mb-4">Our First Conversation</h3>
+                            <p class="text-gray-700 text-center">Talking to you first time. iwant to know your intrestes so i become another person but on this journey to know you, I know in my heart you are the person i wanted.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Moment 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-105 floating-element" style="animation-delay: 1s;">
+                        <div class="p-6">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-pink-400 to-rose-400 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-laugh-beam text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-center text-pink-700 mb-4">Your Laughter</h3>
+                            <p class="text-gray-700 text-center">Your smile. Like wow Jub bhi aap Snap Bhejte ho Me Use baar baar replay karna Chahta huu But Wo hota naii Isliye me Har moemnt tak end tak usee apni eyes me bsa leta hu. Kyuki aap Merko snap naii bhejte.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- Picture Gallery Section -->
+        <section class="py-16 px-4" data-aos="fade-up">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-pink-700 cursive-font">
+                    Moments I wanna Create With You
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <!-- Picture 1 -->
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer transform transition-transform duration-300 hover:scale-105">
+                        <img src="assets/flowers.png" alt="Memory 1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white text-lg cursive-font">A Small But Precious Moment</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Picture 2 -->
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer transform transition-transform duration-300 hover:scale-105">
+                        <img src="assets/Princess Aniya and the Red Rose.png" alt="Memory 2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white text-lg cursive-font">First Rose To My Rose</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Picture 3 -->
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer transform transition-transform duration-300 hover:scale-105">
+                        <img src="assets/A Moment on the Winding Road (1).png" alt="Memory 3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white text-lg cursive-font">I wanna see you in my necklace.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Things I've Done Without Telling You -->
+        <section class="py-16 px-4 romantic-bg" data-aos="fade-up">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-pink-700 cursive-font">
+                    Things I've Done Without Telling You
+                </h2>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-heart text-pink-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-pink-700 mb-1">Made an Portrait Of You</h3>
+                                    <p class="text-gray-700">I made an pencil art of you but thoda bekar bna hai isliye kyuki meri drawoing acchi naii hai but mene bht mehnat kii hai Me aapko Naii dikhaunga wo bss meri hai.</p>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-star text-pink-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-pink-700 mb-1">Planned surprises for you</h3>
+                                    <p class="text-gray-700">I wanna go on small trips On mountains, trekking, do camping, go foreign with you after end our colleges for trip, i wanna make dishes for you but merko aati naii abhi , i wanna do dance holding you, i wanna hug you whenever i see.</p>
+                                </div>
+                            </li>
+                           
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-gift text-pink-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-pink-700 mb-1">Learned about your interests</h3>
+                                    <p class="text-gray-700">Merko apke Bare me Jyada to naii pta but Jo bhi pta hai Aapme mujhe sab psnd hai.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+
+
+        <!-- Final Message -->
+        <section class="py-16 px-4" data-aos="fade-up">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 text-pink-700 cursive-font">
+                    My Heart's Message
+                </h2>
+                
+                <div class="max-w-3xl mx-auto bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-8 shadow-xl">
+                    <p class="text-xl md:text-2xl text-gray-800 mb-6 leading-relaxed">
+                        Aniya, from the moment you came into my life, everything has been brighter. Your kindness, your laughter, and your beautiful soul have touched my heart in ways I never thought possible.
+                    </p>
+                    
+                    <p class="text-xl md:text-2xl text-gray-800 mb-6 leading-relaxed">
+                        On your special day, I want you to know that you are the most amazing person I've ever known. You deserve all the happiness in the world, and I hope this birthday brings you everything you've ever dreamed of.
+                    </p>
+                    <p class="text-xl md:text-2xl text-gray-800 mb-6 leading-relaxed">
+                        Aniya Aap Duniya ke sabse preetiest and sabse loving and sabse kind ho!! Agr Kuch Bura lga to sorry..
+                    </p>
+                    
+                    
+                        
+                    <p class="text-2xl md:text-3xl text-pink-700 font-bold cursive-font mt-8">
+                        Happy Birthday, my dear Aniya!
+                    </p>
+                    
+                    <div class="mt-12">
+                        <p class="text-xl text-gray-700">With all my love,</p>
+                        <p class="text-3xl text-pink-700 font-bold cursive-font mt-2">Deepanshu</p>
+                    </div>
+                </div>
+                
+                <!-- Heart Animation Container -->
+                <div class="mt-12 flex justify-center">
+                    <div class="relative w-20 h-20" id="heartContainer">
+                        <!-- Heart will be generated here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="py-8 px-4 bg-pink-900 text-white text-center">
+            <p class="text-lg">Made with <i class="fas fa-heart text-red-400 mx-1"></i> by Deepanshu for Aniya's Birthday</p>
+            <p class="mt-2">(1 December I Started) - A gift from the heart ^.^</p>
+        </footer>
+    </div>
+    
+    <!-- Audio for background music -->
+    <audio id="birthdayMusic" loop>
+        <source src="assets/Ed Sheeran - Perfect (Official Music Video).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- AOS library for scroll animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Music Player Functionality
+        const musicPlayer = document.getElementById('musicPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const birthdayMusic = document.getElementById('birthdayMusic');
+        
+        // Auto play music when page loads (with user interaction)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Try to play music automatically (modern browsers require user interaction)
+            const playPromise = birthdayMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Autoplay started successfully
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                }).catch(error => {
+                    // Autoplay was prevented
+                    console.log("Autoplay prevented. User needs to interact first.");
+                });
+            }
+        });
+        
+        // Toggle play/pause on click
+        let isPlaying = true;
+        
+        playPauseBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                birthdayMusic.pause();
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                musicPlayer.classList.remove('pulse-element');
+            } else {
+                birthdayMusic.play();
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+                musicPlayer.classList.add('pulse-element');
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        // Canvas Heart Animation
+        const canvas = document.getElementById('heartsCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas to full window size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Heart class for animation
+        class Heart {
+            constructor() {
+                this.size = Math.random() * 15 + 5;
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + this.size;
+                this.speedY = Math.random() * 2 + 1;
+                this.speedX = (Math.random() - 0.5) * 1.5;
+                this.color = `rgba(${255}, ${77 + Math.random() * 50}, ${141 + Math.random() * 50}, ${0.6 + Math.random() * 0.4})`;
+                this.wobble = Math.random() * Math.PI * 2;
+                this.wobbleSpeed = Math.random() * 0.05 + 0.02;
+            }
+            
+            update() {
+                this.y -= this.speedY;
+                this.x += Math.sin(this.wobble) * 0.5 + this.speedX;
+                this.wobble += this.wobbleSpeed;
+                
+                // If heart goes above the screen, reset it to bottom
+                if (this.y < -this.size) {
+                    this.y = canvas.height + this.size;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                
+                // Draw heart shape
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                const topCurveHeight = this.size * 0.3;
+                ctx.moveTo(0, this.size / 4);
+                
+                // Top left curve
+                ctx.bezierCurveTo(
+                    -this.size / 2, -this.size / 4,
+                    -this.size, topCurveHeight,
+                    0, this.size
+                );
+                
+                // Top right curve
+                ctx.bezierCurveTo(
+                    this.size, topCurveHeight,
+                    this.size / 2, -this.size / 4,
+                    0, this.size / 4
+                );
+                
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+        
+        // Create hearts
+        const hearts = [];
+        const heartCount = Math.min(30, Math.floor(window.innerWidth / 30));
+        
+        for (let i = 0; i < heartCount; i++) {
+            hearts.push(new Heart());
+        }
+        
+        // Animation loop
+        function animateHearts() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            hearts.forEach(heart => {
+                heart.update();
+                heart.draw();
+            });
+            
+            requestAnimationFrame(animateHearts);
+        }
+        
+        animateHearts();
+        
+        // Generate floating hearts in the final section
+        const heartContainer = document.getElementById('heartContainer');
+        
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.width = `${Math.random() * 20 + 10}px`;
+            heart.style.height = `${Math.random() * 20 + 10}px`;
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.style.top = `${Math.random() * 100}%`;
+            heart.style.opacity = `${Math.random() * 0.5 + 0.5}`;
+            heartContainer.appendChild(heart);
+            
+            // Remove heart after animation
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+        
+        // Create hearts periodically
+        setInterval(createFloatingHeart, 300);
+        
+        // Add some interactive effects to images
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.transition = 'transform 0.5s ease';
+            });
+            
+            img.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Add confetti effect on click
+        document.addEventListener('click', function(e) {
+            // Only create confetti if not clicking on music player
+            if (!musicPlayer.contains(e.target)) {
+                createClickConfetti(e.clientX, e.clientY);
+            }
+        });
+        
+        function createClickConfetti(x, y) {
+            for (let i = 0; i < 10; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'heart';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.position = 'fixed';
+                confetti.style.left = `${x}px`;
+                confetti.style.top = `${y}px`;
+                confetti.style.zIndex = '9999';
+                confetti.style.pointerEvents = 'none';
+                
+                // Random color
+                const colors = ['#ff4d8d', '#ff99cc', '#ff66b3', '#ff3385'];
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                document.body.appendChild(confetti);
+                
+                // Animate confetti
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = 2 + Math.random() * 2;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+                
+                let posX = x;
+                let posY = y;
+                let opacity = 1;
+                
+                function animateConfetti() {
+                    posX += vx;
+                    posY += vy;
+                    vy += 0.05; // gravity
+                    opacity -= 0.02;
+                    
+                    confetti.style.left = `${posX}px`;
+                    confetti.style.top = `${posY}px`;
+                    confetti.style.opacity = opacity;
+                    
+                    if (opacity > 0) {
+                        requestAnimationFrame(animateConfetti);
+                    } else {
+                        confetti.remove();
+                    }
+                }
+                
+                animateConfetti();
+            }
+        }
+        
+        // Add a romantic quote rotation
+        const quotes = [
+            "You are the source of my joy, the center of my world, and the whole of my heart.",
+            "In your eyes, I found my home. In your heart, I found my love.",
+            "Every moment with you is like a beautiful dream come true.",
+            "If I had a flower for every time I thought of you, I could walk in my garden forever.",
+            "Your smile is my favorite thing in the world, and your happiness is my ultimate goal."
+        ];
+        
+        let quoteIndex = 0;
+        const quoteElement = document.querySelector('.cursive-font.text-2xl');
+        
+        // Change quote every 10 seconds if element exists
+        if (quoteElement) {
+            setInterval(() => {
+                quoteIndex = (quoteIndex + 1) % quotes.length;
+                quoteElement.textContent = `"${quotes[quoteIndex]}"`;
+                
+                // Add animation
+                quoteElement.classList.remove('animate__fadeIn');
+                void quoteElement.offsetWidth; // Trigger reflow
+                quoteElement.classList.add('animate__fadeIn');
+            }, 10000);
+        }
+    </script>
+</body>
+</html>
